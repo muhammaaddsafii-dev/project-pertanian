@@ -17,7 +17,7 @@ class PenyewaResource extends Resource
 {
     protected static ?string $model = Penyewa::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-penyewa';
 
     protected static ?string $navigationLabel = 'Penyewa';
 

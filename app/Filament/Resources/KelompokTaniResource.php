@@ -17,7 +17,7 @@ class KelompokTaniResource extends Resource
 {
     protected static ?string $model = KelompokTani::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-kelompok-tani';
 
     protected static ?string $navigationLabel = 'Kelompok Tani';
 

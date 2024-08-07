@@ -17,7 +17,7 @@ class PertanianResource extends Resource
 {
     protected static ?string $model = Pertanian::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-pertanian';
 
     protected static ?string $navigationLabel = 'Pertanian';
 

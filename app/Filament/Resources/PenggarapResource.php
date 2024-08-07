@@ -17,7 +17,7 @@ class PenggarapResource extends Resource
 {
     protected static ?string $model = Penggarap::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-penggarap';
 
     protected static ?string $navigationLabel = 'Penggarap';
 

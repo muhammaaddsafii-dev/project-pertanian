@@ -17,7 +17,7 @@ class ERDKKResource extends Resource
 {
     protected static ?string $model = ERDKK::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-erdk';
 
     protected static ?string $navigationLabel = 'ERDKK';
 

@@ -17,7 +17,7 @@ class KecamatanResource extends Resource
 {
     protected static ?string $model = Kecamatan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-kecamatan';
 
     protected static ?string $navigationLabel = 'Kecamatan';
 

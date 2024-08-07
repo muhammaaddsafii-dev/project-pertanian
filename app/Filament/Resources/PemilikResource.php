@@ -17,7 +17,7 @@ class PemilikResource extends Resource
 {
     protected static ?string $model = Pemilik::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-pemilik';
 
     protected static ?string $navigationLabel = 'Pemilik';
 
