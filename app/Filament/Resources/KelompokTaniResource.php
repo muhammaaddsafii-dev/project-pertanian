@@ -19,6 +19,12 @@ class KelompokTaniResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Kelompok Tani';
+
+    protected static ?string $navigationGroup = 'Data Sekunder';
+
+    protected static ?int $navigationSort = 40;
+
     public static function form(Form $form): Form
     {
         return $form

@@ -19,6 +19,12 @@ class PenggarapResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Penggarap';
+
+    protected static ?string $navigationGroup = 'Data Sekunder';
+
+    protected static ?int $navigationSort = 20;
+
     public static function form(Form $form): Form
     {
         return $form

@@ -19,6 +19,12 @@ class PenyewaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Penyewa';
+
+    protected static ?string $navigationGroup = 'Data Sekunder';
+
+    protected static ?int $navigationSort = 30;
+
     public static function form(Form $form): Form
     {
         return $form

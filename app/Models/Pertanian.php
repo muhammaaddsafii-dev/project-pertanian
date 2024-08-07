@@ -20,9 +20,15 @@ class Pertanian extends Model
         'pemilik_id',
         'penggarap_id',
         'penyewa_id',
-        'komoditas_id',
-        'masa_tanam_id',
-        'produktivitas_id',
+        'komoditas_1',
+        'komoditas_2',
+        'komoditas_3',
+        'masa_tanam_1',
+        'masa_tanam_2',
+        'masa_tanam_3',
+        'produktivitas_1',
+        'produktivitas_2',
+        'produktivitas_3',
         'jumlah_ptk',
         'subsidi_pupuk',
         'alat_sistem_tanam',
@@ -68,20 +74,5 @@ class Pertanian extends Model
     public function penyewa(): BelongsTo
     {
         return $this->belongsTo(Penyewa::class);
-    }
-
-    public function komoditas(): BelongsTo
-    {
-        return $this->belongsTo(Komoditas::class);
-    }
-
-    public function masaTanam(): BelongsTo
-    {
-        return $this->belongsTo(MasaTanam::class);
-    }
-
-    public function produktivitas(): BelongsTo
-    {
-        return $this->belongsTo(Produktivitas::class);
     }
 }

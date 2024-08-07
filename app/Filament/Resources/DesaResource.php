@@ -19,6 +19,12 @@ class DesaResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Desa';
+
+    protected static ?string $navigationGroup = 'Data Sekunder';
+
+    protected static ?int $navigationSort = 60;
+
     public static function form(Form $form): Form
     {
         return $form

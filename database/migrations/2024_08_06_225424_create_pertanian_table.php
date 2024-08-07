@@ -20,9 +20,15 @@ return new class extends Migration
             $table->foreignId('pemilik_id')->constrained('pemilik')->onDelete('cascade');
             $table->foreignId('penggarap_id')->constrained('penggarap')->onDelete('cascade');
             $table->foreignId('penyewa_id')->constrained('penyewa')->onDelete('cascade');
-            $table->foreignId('komoditas_id')->constrained('komoditas')->onDelete('cascade');
-            $table->foreignId('masa_tanam_id')->constrained('masa_tanam')->onDelete('cascade');
-            $table->foreignId('produktivitas_id')->constrained('produktivitas')->onDelete('cascade');
+            $table->string('komoditas_1')->nullable();
+            $table->string('komoditas_2')->nullable();
+            $table->string('komoditas_3')->nullable();
+            $table->string('masa_tanam_1')->nullable();
+            $table->string('masa_tanam_2')->nullable();
+            $table->string('masa_tanam_3')->nullable();
+            $table->string('produktivitas_1')->nullable();
+            $table->string('produktivitas_2')->nullable();
+            $table->string('produktivitas_3')->nullable();
             $table->string('jumlah_ptk')->nullable();
             $table->string('subsidi_pupuk')->nullable();
             $table->string('alat_sistem_tanam')->nullable();

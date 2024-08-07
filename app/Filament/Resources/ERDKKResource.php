@@ -19,6 +19,12 @@ class ERDKKResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'ERDKK';
+
+    protected static ?string $navigationGroup = 'Data Sekunder';
+
+    protected static ?int $navigationSort = 70;
+
     public static function form(Form $form): Form
     {
         return $form
