@@ -29,7 +29,9 @@ class KecamatanResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama')
+                    ->maxLength(255)
+                    ->label('Nama Kecamatan'),
             ]);
     }
 
@@ -37,13 +39,15 @@ class KecamatanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama'),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -66,5 +70,15 @@ class KecamatanResource extends Resource
             'create' => Pages\CreateKecamatan::route('/create'),
             'edit' => Pages\EditKecamatan::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Kecamatan');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Kecamatan');
     }
 }

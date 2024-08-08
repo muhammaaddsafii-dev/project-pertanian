@@ -29,7 +29,12 @@ class DesaResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Select::make('kecamatan_id')
+                    ->relationship('kecamatan', 'nama')
+                    ->required(),
             ]);
     }
 
@@ -37,13 +42,22 @@ class DesaResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('kecamatan.nama')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -67,4 +81,15 @@ class DesaResource extends Resource
             'edit' => Pages\EditDesa::route('/{record}/edit'),
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return __('Desa');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Desa');
+    }
+
 }

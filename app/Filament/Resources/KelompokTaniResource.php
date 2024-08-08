@@ -29,7 +29,15 @@ class KelompokTaniResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('blok')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('jabatan')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -37,13 +45,19 @@ class KelompokTaniResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('blok')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('jabatan')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -66,5 +80,15 @@ class KelompokTaniResource extends Resource
             'create' => Pages\CreateKelompokTani::route('/create'),
             'edit' => Pages\EditKelompokTani::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Kelompok Tani');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Kelompok Tani');
     }
 }

@@ -29,7 +29,15 @@ class PemilikResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('nik')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextArea::make('alamat')
+                    ->required()
+                    ->maxLength(65535),
             ]);
     }
 
@@ -37,13 +45,19 @@ class PemilikResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('nik')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('alamat')->sortable()->searchable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -66,5 +80,15 @@ class PemilikResource extends Resource
             'create' => Pages\CreatePemilik::route('/create'),
             'edit' => Pages\EditPemilik::route('/{record}/edit'),
         ];
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Pemilik');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Pemilik');
     }
 }
