@@ -75,4 +75,25 @@ class Pertanian extends Model
     {
         return $this->belongsTo(Penyewa::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::updating(function ($model) {
+            $original = $model->getOriginal();
+            foreach ($model->getDirty() as $field => $newValue) {
+                $oldValue = $original[$field];
+
+                ChangeLog::create([
+                    'table_name' => $model->getTable(),
+                    'record_id' => $model->id,
+                    'field_name' => $field,
+                    'old_value' => $oldValue,
+                    'new_value' => $newValue,
+                    'changed_by' => auth()->id(), // assumes you're using Laravel's Auth
+                ]);
+            }
+        });
+    }
 }
